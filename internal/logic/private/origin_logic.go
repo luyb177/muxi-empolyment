@@ -25,7 +25,7 @@ func NewOriginLogic(ctx context.Context, svcCtx *svc.ServiceContext) *OriginLogi
 }
 
 func (l *OriginLogic) Origin() (resp *types.Response, err error) {
-	// todo: add your logic here and delete this line
+	
 
 	return
 }

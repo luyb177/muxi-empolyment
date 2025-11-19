@@ -75,7 +75,7 @@ func NpcSecurity() (resp *types.Response, err error) {
 		Code:    200,
 		Message: "success",
 		Data: &types.ChattingResponse{
-			Info: types.Info{"请前往 /ping 刷卡"},
+			Info: types.Info{Information: "请前往 /ping 刷卡"},
 		},
 	}, nil
 }
