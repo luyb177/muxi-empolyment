@@ -17,7 +17,6 @@ type (
 type (
 	LogResponse {
 		Info
-		Tips
 		Logs []string `json:"logs"`
 	}
 )

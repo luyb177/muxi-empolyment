@@ -22,7 +22,6 @@ type Info struct {
 
 type LogResponse struct {
 	Info
-	Tips
 	Logs []string `json:"logs"`
 }
 
