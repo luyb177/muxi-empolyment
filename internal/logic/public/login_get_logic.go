@@ -25,7 +25,15 @@ func NewLoginGetLogic(ctx context.Context, svcCtx *svc.ServiceContext) *LoginGet
 }
 
 func (l *LoginGetLogic) LoginGet() (resp *types.Response, err error) {
-	// todo: add your logic here and delete this line
+	resp=&types.Response{
+		Code: 200,
+		Message: "success",
+		Data: 
+			types.LoginGETResponse{
+				Info: types.Info{Information:"请输入用户名和密码"},
+				Tips: types.Tips{Tips:"使用的请求体是 {\"username\":\"xxx\",\"password\":\"xxx\"}"},
+			},
+		}
 
 	return
 }

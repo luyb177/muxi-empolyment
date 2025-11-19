@@ -2,7 +2,10 @@ module muxi-empolyment
 
 go 1.25.3
 
-require github.com/zeromicro/go-zero v1.9.3
+require (
+	github.com/golang-jwt/jwt/v5 v5.3.0
+	github.com/zeromicro/go-zero v1.9.3
+)
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
