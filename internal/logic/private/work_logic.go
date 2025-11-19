@@ -25,7 +25,6 @@ func NewWorkLogic(ctx context.Context, svcCtx *svc.ServiceContext) *WorkLogic {
 }
 
 func (l *WorkLogic) Work() (resp *types.Response, err error) {
-	// todo: add your logic here and delete this line
 	return &types.Response{
 		Code:    200,
 		Message: "success",
