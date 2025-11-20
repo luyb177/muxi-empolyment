@@ -36,21 +36,38 @@ func (l *OriginLogic) Origin(r *http.Request) (resp *types.Response, err error) 
 			}
 			return
 		}
-	l1,_:=base64.StdEncoding.DecodeString(token)
-	l2,_:=base64.StdEncoding.DecodeString(string(l1))
+	l1,err:=base64.StdEncoding.DecodeString(token)
+	if err!=nil{
+		return &types.Response{
+			Code:    403,
+			Message: "failed",
+			Data: types.OriginResponse{
+				Info: types.Info{Information: "似乎少了什么步骤呢？再仔细看看前面给出的tips吧"},
+			},
+		},nil
+	}
+	l2,err:=base64.StdEncoding.DecodeString(string(l1))
+	if err!=nil{
+		return &types.Response{
+			Code:    403,
+			Message: "failed",
+			Data: types.OriginResponse{
+				Info: types.Info{Information: "似乎少了什么步骤呢？再仔细看看前面给出的tips吧"},
+			},
+		},nil
+	}
 	rawToken:=string(l2) 
 	err=l.svcCtx.JWTHandler.ParseToken(rawToken)
 	if err!=nil{
-		resp=&types.Response{
+		return &types.Response{
 				Code: 403,
 				Message: "failed",
 				Data: types.OriginResponse{Info: types.Info{Information: "似乎不是这个token？再仔细找找吧"}},
-			}
-			return
+			},nil
 	}
 	resp=&types.Response{
 				Code: 200,
-				Message: "failed",
+				Message: "success",
 				Data: types.OriginResponse{
 					Info: types.Info{
 					Information:"我就知道你可以做到！你成功阻止内部背叛，找回 Project-ORIGIN 核心文件。恭喜你成为了择木而犀有限公司的正式员工！",
