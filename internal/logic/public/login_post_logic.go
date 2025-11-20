@@ -26,7 +26,7 @@ func NewLoginPostLogic(ctx context.Context, svcCtx *svc.ServiceContext) *LoginPo
 }
 
 func (l *LoginPostLogic) LoginPost(req *types.LoginRequest) (resp *types.Response, err error) {
-	if req.Password != "muxiNB666" || req.Username != "alpha" {
+	if req.Password != l.svcCtx.Config.User.Password || req.Username != l.svcCtx.Config.User.Username {
 		resp = &types.Response{
 			Code:    400,
 			Message: "failed",
